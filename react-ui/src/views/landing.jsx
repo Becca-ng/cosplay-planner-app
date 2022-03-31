@@ -57,7 +57,6 @@ const LandingPage = () => {
 						<form>
 							<label for="chk" aria-hidden="true">Sign up</label>
 							<input type="text" name="username" placeholder="User name" required="" />
-							<input type="email" name="email" placeholder="Email" required="" />
 							<input type="password" name="password" placeholder="Password" required="" />
 							<button onClick={handleSignUp} className="landingButton" type="submit">Sign up</button>
 						</form>

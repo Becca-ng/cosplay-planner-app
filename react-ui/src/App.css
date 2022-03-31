@@ -1,3 +1,6 @@
+/* https://www.canva.com/p/templates/EAE8dtCQiSY-thank-you-poster-/ */
+
+
 /* LANDING PAGE CSS */
 
 main{
@@ -8,13 +11,13 @@ main{
   align-items: center;
   min-height: 100vh;
   font-family: 'Jost', sans-serif;
-  background: linear-gradient(to bottom, #a0baa1, #869c87, #7c917d);
+  background: linear-gradient(to bottom, #889180, #84a486, #80a082);
 }
 
 .main{
   width: 350px;
   height: 500px;
-  background: #c3a59d;
+  background: #d7a7b2;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
@@ -55,7 +58,7 @@ input{
   margin: 10px auto;
   justify-content: center;
   display: block;
-  color: #fff;
+  color: #42423d;
   background: #a0baa1;
   font-size: 1em;
   font-weight: bold;
@@ -66,8 +69,8 @@ input{
   transition: .2s ease-in;
   cursor: pointer;
 }
-button:hover{
-  background: #6d44b8;
+.landingButton:hover{
+  background: #ceddb0;
 }
 .login{
   height: 460px;
@@ -89,6 +92,32 @@ button:hover{
 }
 #chk:checked ~ .signup label{
   transform: scale(.6);
+}
+
+
+/* Nav Bar Buttons */
+
+.navBarBtn{
+  width: 60%;
+  height: 40px;
+  margin: 10px auto;
+  justify-content: center;
+  display: block;
+  color: #825861;
+  background: #d091a0;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .2s ease-in;
+
+}
+
+.navBarBtn:hover{
+  background: #f4cdd6;
 }
 
  
