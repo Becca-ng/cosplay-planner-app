@@ -30,6 +30,12 @@ main{
   width:100%;
   height: 100%;
 }
+
+.password-hover{
+  display:none;
+}
+
+
 label{
   color: #fff;
   font-size: 2.3em;
@@ -80,7 +86,7 @@ input{
   transition: .8s ease-in-out;
 }
 .login label{
-  color: #8c6144;
+  color: #42423d;
   transform: scale(.6);
 }
 
@@ -103,7 +109,7 @@ input{
   margin: 10px auto;
   justify-content: center;
   display: block;
-  color: #825861;
+  color: #583d43;
   background: #d091a0;
   font-size: 1em;
   font-weight: bold;
