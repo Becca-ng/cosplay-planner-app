@@ -9,12 +9,11 @@ const Main = () => {
 
 
     return (
-        <main>
+        <main className = "workSpaceGrid navBarSpace projectSpace">
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="projects" element={<WorkSpace />}>
                     <Route path=":projectId" element={<p> FORM PAGE </p>} />
-                    <Route path="new_project_form" element={<NewProjectForm />} />
                 </Route>
             </Routes>
         </main>

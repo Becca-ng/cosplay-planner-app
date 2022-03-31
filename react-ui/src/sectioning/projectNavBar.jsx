@@ -1,24 +1,30 @@
 import { NavLink, Outlet , useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsFormOpen } from '../redux/actions';
 import NewProjectForm from "../components/newProjectForm";
 
 
 const NavigationBar = () => {
 
-const[showForm, setShowForm] = useState(false);
+const dispatch = useDispatch();
+const isFormOpen = useSelector(state => state.form)
+// this is what maps it to the action redux thing
+
+// const[showForm, setShowForm] = useState(false);
 
 const formOpen = () => {
-    setShowForm(!showForm)
+    dispatch(setIsFormOpen(isFormOpen))
 }
     
     return (
-        <div >
-            <div className='profile'>
-            </div>
+        <>
+            <div className='profile'/>
+    
             <button className="navBarBtn"> <NavLink to="/"> Log Out </NavLink></button>
-            <NavLink to="new_project_form" ><button className="navBarBtn" onClick={formOpen}> Add new Project </button></NavLink>
-        
-        </div>
+           <button className="navBarBtn" onClick={formOpen}> Add new Project </button>
+    
+        </>
     )
 
 }

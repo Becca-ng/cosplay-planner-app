@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import NewProjectForm from '../components/newProjectForm';
 
 const WorkSpace = () => {
 
+    const isFormOpen = useSelector(state => state.form);
     
 
 
@@ -11,7 +14,7 @@ const WorkSpace = () => {
 
                 <div className="workSpace">
                     <div>
-                        {/* <NewProjectForm /> */}
+                        {isFormOpen && <NewProjectForm />}
                     </div>
                     <Outlet />
                 </div>
