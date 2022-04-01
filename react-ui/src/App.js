@@ -4,18 +4,11 @@ import NavigationBar from "./sectioning/projectNavBar";
 
 function App() {
   return (
-    <>
-    <div className="sideNav">
-      <NavigationBar />
-    <div className="project_workspace">
+    <div className = "projectBody">
       <Header />
       <Main />
       <Footer />
     </div>
-    </div>
-
-   
-    </>
   );
 }
 

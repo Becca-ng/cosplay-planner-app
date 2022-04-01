@@ -7,41 +7,11 @@ const LandingPage = () => {
 
 	const handleLogin = async e => {
 		e.preventDefault();
-		console.log(e.target.form.username.value);
-		// await callAPI("GET", { "username": "testUser", "password": "passwordToHash" })
-		await callAPI2(e.target.form.username.value)
-		// if (error){
-
-		// }
-
-		// else{
-		// navigateTo("/projects");
-		// }
-	}
-
-	const callAPI2 = async (username) => {
-		const requestOptions = {
-			method: "GET",
-			headers: { 'Content-Type': 'application/json' }
-		};
-		try{
-			await fetch(`${API_URL}?username=${username}`, requestOptions)
-				.then(res => res.json())
-				.then((data) => {
-					console.log(data)
-				})
-				.catch(console.log)
-		}catch(e){
-			console.log(e);
-		}
-	}
-
-	const handleSignUp = async e => {
-		e.preventDefault();
 		const form = e.target.form;
 		const user = {
 			"username": form.username.value,
-			"password": ""
+			"password": "",
+			"create": false
 		}
 		let response;
 		bcrypt.genSalt(10, async function(err, salt) {
@@ -50,6 +20,25 @@ const LandingPage = () => {
 				await callAPI("POST", user)
 			});
 		});
+		navigateTo("/projects")
+	}
+
+	const handleSignUp = async e => {
+		e.preventDefault();
+		const form = e.target.form;
+		const user = {
+			"username": form.username.value,
+			"password": "",
+			"create": true
+		}
+		let response;
+		bcrypt.genSalt(10, async function(err, salt) {
+			bcrypt.hash("B4c0/\/", salt, async function(err, hash) {
+				user.password = hash;
+				await callAPI("POST", user)
+			});
+		});
+		navigateTo("/projects")
 	}
 
 
@@ -78,7 +67,6 @@ const LandingPage = () => {
 			<header>
 				<title>Slide Navbar</title>
 				<link rel="stylesheet" type="text/css" href="slide navbar style.css" />
-				<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 			</header>
 
 			<main>

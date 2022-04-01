@@ -9,14 +9,15 @@ const Main = () => {
 
 
     return (
-        <main className = "workSpaceGrid navBarSpace projectSpace">
+        <>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&display=swap" rel="stylesheet"/> 
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="projects" element={<WorkSpace />}>
                     <Route path=":projectId" element={<p> FORM PAGE </p>} />
                 </Route>
             </Routes>
-        </main>
+        </>
     )
 };
 

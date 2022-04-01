@@ -1,28 +1,21 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import NewProjectForm from '../components/newProjectForm';
+import { ProjectSideBar, ProjectWorkSpace } from '../components/projectWorkspace/projectIndex';
+
+
 
 const WorkSpace = () => {
 
     const isFormOpen = useSelector(state => state.form);
-    
+
 
 
     return (
-        <>
-
-                <div className="workSpace">
-                    <div>
-                        {isFormOpen && <NewProjectForm />}
-                    </div>
-                    <Outlet />
-                </div>
-
-
-
-
-        </>
+        <div className='project-grid'>
+            <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'></link>
+            <ProjectSideBar />
+            <ProjectWorkSpace />
+        </div>
 
     )
 }
