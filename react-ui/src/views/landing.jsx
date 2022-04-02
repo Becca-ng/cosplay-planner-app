@@ -9,6 +9,8 @@ const LandingPage = () => {
 
 	const navigateTo = useNavigate();
 
+	// doesnt have to ssend unhasehdd password on first pass owo 
+
 	const handleLogin = async e => {
 		e.preventDefault();
 		const form = e.target.form;
@@ -19,7 +21,8 @@ const LandingPage = () => {
 		}
 		console.log("login userinfo: " + user);
 		let response;
-		let data = await callAPI("POST", user)
+		// TODO: wrap in try catch
+		let data = await callAPI("POST", user) 
 		await comparePasswords(form.password.value, userData, user.username)
 	}
 
