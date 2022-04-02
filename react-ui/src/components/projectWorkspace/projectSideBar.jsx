@@ -6,6 +6,8 @@ const ProjectSideBar = () => {
 
     return (
         <div className="sideNavBar sideBar-grid">
+
+
             <div className="logoContainer">
                 <img className="logo" src={logoTest} />
                 <button className="navBarBtn logOutBtn">
@@ -14,9 +16,6 @@ const ProjectSideBar = () => {
             </div>
 
             <div className="navBtnContainer">
-
-
-
                 <div className="createContainer">
                     <div className="createDiv1">
                         <input className="createInput" type="text" placeholder="What are you making?" />
@@ -25,15 +24,23 @@ const ProjectSideBar = () => {
                         <button className="navBarBtn createBtn"> Create! </button>
                     </div>
                 </div>
-
             </div>
 
 
-            <div className="newProjectContainer newProjectScroll">
-                <div className="projectTabs">  MOCK PROJECT </div>
-                
+            <div className="newProjectContainer">
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
+                    <div className="projectTabs">  MOCK PROJECT </div>
             </div>
-
         </div>
     )
 }
