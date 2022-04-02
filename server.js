@@ -69,6 +69,13 @@ app.get('/api/projects', (req, res) => {
   ]);
 });
 
+app.post('/api/projects', (req, res) => {
+  const {newProjectName} = req.body;
+  res.json({
+    "data": newProjectName
+  })
+});
+
 
 // catch-all so react can handle routing
 app.get('*', (req, res) => {

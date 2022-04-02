@@ -5,12 +5,29 @@ import { logoTest, plusIcon } from "../../images/imageIndex";
 const ProjectSideBar = () => {
 
   const [projects, setProjects] = useState();
+  const [newProjectName, setNewProjectName] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:8080/api/projects')
     .then(res => res.json())
     .then(data => setProjects(data));
   }, []);
+
+  const handleChange = e => {
+    setNewProjectName(e.target.value);
+  };
+
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({newProjectName})
+  };
+
+  const handleClick = () => {
+    fetch('http://localhost:8080/api/projects', requestOptions)
+    .then(res => res.json())
+    .then(data => setProjects([...projects, data.data]));
+  };
 
     return (
         <div className="sideNavBar sideBar-grid">
@@ -26,10 +43,16 @@ const ProjectSideBar = () => {
             <div className="navBtnContainer">
                 <div className="createContainer">
                     <div className="createDiv1">
-                        <input className="createInput" type="text" placeholder="What are you making?" />
+                        <input
+                          className="createInput"
+                          onChange={handleChange}
+                          placeholder="What are you making?"
+                          type="text"
+                          value={newProjectName}
+                        />
                     </div>
                     <div className="createDiv2">
-                        <button className="navBarBtn createBtn"> Create! </button>
+                        <button className="navBarBtn createBtn" onClick={handleClick}> Create! </button>
                     </div>
                 </div>
             </div>
