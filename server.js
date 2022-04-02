@@ -8,7 +8,7 @@ const app = express();
 
 process.env.HTTPS = true
 
-const PORT = 8080;
+const {PORT} = process.env.PORT;
 
 app.use(session({
   secret: 'secret',
