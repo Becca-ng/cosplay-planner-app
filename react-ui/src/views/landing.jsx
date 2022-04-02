@@ -113,6 +113,6 @@ const LandingPage = () => {
 }
 
 //https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
-const API_URL = 'https://fast-tor-11029.herokuapp.com/https://l80b9v6lai.execute-api.us-east-1.amazonaws.com/Prod';
+const API_URL = 'https://fast-tor-11029.herokuapp.com/https://3uck5y4t5g.execute-api.us-east-1.amazonaws.com/live';
 
 export default LandingPage;
