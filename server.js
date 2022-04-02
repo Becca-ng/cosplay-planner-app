@@ -8,7 +8,29 @@ const app = express();
 
 process.env.HTTPS = true
 
-const {PORT} = process.env.PORT;
+const {PORT} = process.env;
+
+//CORS
+app.use(function(req, res, next) {
+  const allowList = [
+    "http://localhost:3000",
+  ];
+  const origin = req.headers.origin;
+  if (allowList.indexOf(origin) > -1) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Accept, Authorization, Content-Type, Origin, X-Requested-With"
+  );
+  res.header("Access-Control-Allow-Methods", "DELETE, GET, PATCH, POST, PUT");
+  res.header("Access-Control-Allow-Credentials", true);
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+  next();
+});
 
 app.use(session({
   secret: 'secret',
@@ -27,6 +49,24 @@ app.get('/heartbeat', (req, res) => {
   res.json({
     "is": "working"
   })
+});
+
+// mock data for now
+app.get('/api/projects', (req, res) => {
+  res.json([
+    'MOCK PROJECT 1',
+    'MOCK PROJECT 2',
+    'MOCK PROJECT 3',
+    'MOCK PROJECT 4',
+    'MOCK PROJECT 5',
+    'MOCK PROJECT 6',
+    'MOCK PROJECT 7',
+    'MOCK PROJECT 8',
+    'MOCK PROJECT 9',
+    'MOCK PROJECT 10',
+    'MOCK PROJECT 11',
+    'MOCK PROJECT 12'
+  ]);
 });
 
 

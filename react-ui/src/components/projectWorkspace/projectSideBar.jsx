@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { logoTest, plusIcon } from "../../images/imageIndex";
 
 const ProjectSideBar = () => {
 
+  const [projects, setProjects] = useState();
+
+  useEffect(() => {
+    fetch('http://localhost:8080/api/projects')
+    .then(res => res.json())
+    .then(data => setProjects(data));
+  }, []);
 
     return (
         <div className="sideNavBar sideBar-grid">
@@ -28,18 +36,17 @@ const ProjectSideBar = () => {
 
 
             <div className="newProjectContainer">
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
-                    <div className="projectTabs">  MOCK PROJECT </div>
+              <ul>
+                {projects && (
+                  projects.map((project, index) => {
+                    return (
+                      <li key={index}>
+                        {project}
+                      </li>
+                    )
+                  })
+                )}
+              </ul>
             </div>
         </div>
     )
