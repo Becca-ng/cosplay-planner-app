@@ -35,6 +35,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './react-ui/build', 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log(`The server is running at port ${PORT}`);
 });
