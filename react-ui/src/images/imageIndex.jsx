@@ -1,6 +1,6 @@
-import newLogo from "./logo/CreateNewProjectLogo.svg";
 import logoTest from "./logo/logoTest.png";
 import plusIcon from "./icons/plusIcon.png";
+import loginBackground from "./background/loginBackground.png"
 
 
-export {newLogo , logoTest , plusIcon};
+export { logoTest , plusIcon, loginBackground};

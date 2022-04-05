@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { loginBackground } from "../images/imageIndex"
 const bcrypt = require('bcryptjs');
 
 const LandingPage = () => {
@@ -101,13 +102,13 @@ const LandingPage = () => {
 
 					<div className="signup">
 						<form>
-							<label for="chk" aria-hidden="true">Sign up</label>
-							<input placeholder="Username" type="text" name="username" required="" />
+							<label for="chk" aria-hidden="true" className="loginLabel">Sign up</label>
+							<input placeholder="Username" type="text" name="username" required="" className="loginInput"/>
 
 							<span >
 								<input
 									placeholder="Password"
-									 className = "password-input"
+									 className = "password-input loginInput"
 									name="password"
 									type="password"
 									id="password"
@@ -125,9 +126,9 @@ const LandingPage = () => {
 
 					<div className="login">
 						<form>
-							<label for="chk" aria-hidden="true">Login</label>
-							<input type="text" name="username" placeholder="Username" required="" />
-							<input type="password" name="password" placeholder="Password" required="" />
+							<label for="chk" aria-hidden="true" className="loginLabel">Login</label>
+							<input type="text" name="username" placeholder="Username" required="" className="loginInput"/>
+							<input type="password" name="password" placeholder="Password" required="" className="loginInput"/>
 							<button onClick={handleLogin} className="landingButton">Login</button>
 						</form>
 					</div>
