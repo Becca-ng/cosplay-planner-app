@@ -336,7 +336,6 @@ margin: 0;
     margin-top:5%;
     border: 2px solid #ccc;
     border-radius: 7px;
-    box-shadow: 5px 20px 50px rgb(122, 130, 129);
     width:100%;
   }
 
@@ -346,7 +345,6 @@ margin: 0;
   margin:5%;
   border: 2px solid #ccc;
   border-radius: 7px;
-  box-shadow: 5px 20px 50px rgb(122, 130, 129);
   width:100%;
   }
 
@@ -356,7 +354,6 @@ margin: 0;
   margin-left:10%;
   border: 2px solid #ccc;
   border-radius: 7px;
-  box-shadow: 5px 20px 50px rgb(122, 130, 129);
   height: 100%;
   width:80%;
   overflow: hidden;
