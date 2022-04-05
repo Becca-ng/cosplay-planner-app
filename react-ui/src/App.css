@@ -126,8 +126,8 @@ input{
   margin: 0;
   padding: 0;
   display: flex;
-  min-height: 100%;
-  min-width: 100%;
+  max-height: 100%;
+  width: 100%;
   overflow: hidden;
   }
   
@@ -252,8 +252,10 @@ input{
 
   .project-WorkSpace { 
     grid-area: 1 / 2 / 2 / 3;
-    background-color: #c8d1d0; 
+    background-color: #000000; 
     width: 100%;
+    height: 100%;
+    padding-left: 5%;
     overflow: hidden;
   }
 
@@ -263,32 +265,42 @@ input{
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    height: 100%;
     overflow: hidden;
   }
 
   .projectDetails{
     grid-area: 1 / 1 / 2 / 2;
     background-color: #fef7f0; 
-    margin:5%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+    border: 2px solid #ccc;
     border-radius: 7px;
     box-shadow: 5px 20px 50px rgb(122, 130, 129);
+    width:100%;
   }
-
 
   .projectNotes{
   grid-area: 2 / 1 / 3 / 2;
   background-color: #fef7f0; 
   margin:5%;
+  border: 2px solid #ccc;
   border-radius: 7px;
   box-shadow: 5px 20px 50px rgb(122, 130, 129);
+  width:100%;
   }
 
   .projectTaskList{
   grid-area: 1 / 2 / 3 / 3;
   background-color: #fef7f0; 
-  margin:5% 5% 5% 0;
+  margin-left:10%;
+  border: 2px solid #ccc;
   border-radius: 7px;
   box-shadow: 5px 20px 50px rgb(122, 130, 129);
+  height: 100%;
+  width:80%;
+  overflow: hidden;
   }
 
 
@@ -300,6 +312,7 @@ input{
   grid-template-rows: .25fr 1fr .25fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;  
+  height:100%
 }
 
 .summaryTitle{
@@ -314,6 +327,7 @@ grid-area: 2 / 1 / 3 / 2;
  flex-direction: row; 
  justify-content: center; 
  max-width: 100%;
+ margin-top:10px;
 }
 
 .summaryLabel{
@@ -330,11 +344,23 @@ grid-area: 2 / 1 / 3 / 2;
   margin-left:20px;
 }
 
-.summaryButtons{
+.sumButt-container{
   grid-area: 3 / 1 / 4 / 2; 
+  background-color: #eeb199;
 }
 
-/* task List */
+.sumButt{
+  width: 50%;
+  height: 100%;
+  border: none;
+  transition: .2s ease-in;
+  border-radius: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* TASK LIST */
 
 .taskList-grid{
   display: grid;
@@ -342,32 +368,172 @@ grid-area: 2 / 1 / 3 / 2;
   grid-template-rows: .20fr .25fr 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  border-style: solid;
-  border-width: 5px;
-  max-height: 100%;
+  min-height: 99.6vh;
+  max-height: 90vh; 
   overflow: hidden;
+  background-color: #c0d7d4;
 }
 
 .taskTitle{
   grid-area: 1 / 1 / 2 / 2; 
-  border-style: solid;
-  border-width: 5px;
   overflow: hidden;
-
+  text-align: center;
 }
 
-.addTask{
+.addTask{ 
+  overflow: hidden;
   grid-area: 2 / 1 / 3 / 2; 
-  border-style: solid;
-  border-width: 5px;
-  overflow: hidden;
+  justify-content: center; 
+  text-align: center;
+}
+
+/* ADD A CUSTOM OR PREMADE TASK BAR */
+.addTask-grid{
+  display: grid;
+  grid-template-columns: 1fr .5fr 1fr .5fr;
+  grid-template-rows: .20fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  background: #ffe9e0;
+}
+
+.customTask-area{
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.customTask{
+height:100%;
+width: 100%;
+padding: 12px 20px;
+box-sizing: border-box;
+background: #fcd3c3;
+border: 2px solid #eeb199; 
+border-radius: 7px;
+box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.2);
+font-size: 16px;
+resize: none; 
+font-family: 'Gruppo';
+font-weight: bold;
+word-break: break-all; 
+}
+
+.taskText-grid{
+grid-area: 1 / 2 / 2 / 3; 
+}
+
+.taskText{
+  height:100%;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dropDown-grid{
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.dropDown {
+  display: inline-block;
+  background: #c0d7d4; 
+  max-width: 100%;
+  border-radius: 7px;
+}
+
+.dropDown-content {
+  background: #fcd3c3;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  text-align: center;
+  font-family: 'Gruppo';
+  font-weight: bold;
+  font-size: 23px;
+  border: 2px solid #eeb199;
+  border-radius: 7px;
 
 }
 
-.taskTabs{
+.taskAddBtn-grid{
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.taskAddButton{
+  width: 50%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  transition: .2s ease-in;
+  border-radius: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.plus{
+  position: relative;
+  width: 50px;
+  height:50px;
+}
+.taskAddButton:hover{
+  background: #eeb199;
+
+}
+
+/* TASK TABS */
+
+.taskTabs-container{
   grid-area: 3 / 1 / 4 / 2; 
-  border-style: solid;
-  border-width: 5px;  
+  max-width: 100%;
+  max-height: 100%;
 }
 
- 
+.taskTabs-area{
+  width: 100%;
+  height:100%;
+}
+
+.taskTab{
+  background: #fcd3c3;
+  border: 2px solid #eeb199;
+  box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 7px;
+  margin-top:15px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: grid;
+  grid-template-columns: 1fr .10fr;
+  grid-template-rows: .50fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height:100px;
+  transition: .2s ease-in;
+}
+
+
+
+.div1{
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: #ffffff;
+}
+
+.div2{
+  grid-area: 1 / 2 / 2 / 3;
+  background-color: #eeb199;
+  height:100%;
+}
+
+.tabTextArea{
+
+}
+
+.tabButtons{
+  background-color: #eeb199;
+}
+
+
+

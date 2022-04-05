@@ -86,23 +86,6 @@ app.get('/api/projects', (req, res) => {
         "name": "Lux"
       }
     },
-    
-    
-    // let exampleProject = {
-    //   "project":{
-    //     "name": "whatever they input"
-    //   }
-    // }
-    
-    // setProjects([...project, exampleProject])
-    
-    // {
-    //   "project"
-    // }
-    
-    
-    
-    
     {
       "projectId": "TESTUSER-03",
       "username": "TESTUSER",
