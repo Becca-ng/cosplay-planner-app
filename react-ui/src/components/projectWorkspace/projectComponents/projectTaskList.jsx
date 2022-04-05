@@ -1,4 +1,4 @@
-import { plusIcon } from "../../../images/imageIndex"
+import { plusIcon, checkIcon , editIcon } from "../../../images/imageIndex"
 
 
 const TaskList = () => {
@@ -73,11 +73,11 @@ const TaskList = () => {
                             <img src={plusIcon} className="tabIcon" />
                         </button>
                         <button className="tabButt">
-                            <img src={plusIcon} className="tabIcon" />
+                            <img src={editIcon} className="tabIcon" />
 
                         </button>
                         <button className="tabButt">
-                            <img src={plusIcon} className="tabIcon" />
+                            <img src={checkIcon} className="tabIcon" />
                         </button>
                     </div>
                 </div>

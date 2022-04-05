@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { logoTest, plusIcon } from "../../images/imageIndex";
+import { logoTest, xIcon } from "../../images/imageIndex";
 
 const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
 
@@ -152,15 +152,17 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
 
 
       <div className="newProjectContainer">
-        <ul>
+        <ul className="projectTabContainer">
           {projects && (
             projects.map((project, index) => {
               return (
 
                 //TODO you should style this to look a bit nicer
-                <li key={index} index={index} onClick={handleSelect}>
-                  {project.project.name}
-                  <button onClick={handleDelete} index={index}> Delete</button>
+                <li key={index} index={index} onClick={handleSelect} className="projectTab">
+                  <p className="sideName"> {project.project.name} </p>
+                  <button onClick={handleDelete} index={index} className="tabIcon-container"> 
+                  <img src={xIcon} className="sideBar-delete"/>
+                  </button>
                 </li>
               )
             })
