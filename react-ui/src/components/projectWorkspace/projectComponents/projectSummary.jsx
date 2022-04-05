@@ -40,8 +40,9 @@ const Summary = () => {
                     
                 </form>
             </div>
-            <div className="summaryBtn">
+            <div className="sumButt sumButt-container">
             <button> Save! </button>
+            <button> Edit! </button>
             </div>
         </div>
     )

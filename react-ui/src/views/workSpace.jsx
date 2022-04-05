@@ -15,8 +15,8 @@ const WorkSpace = () => {
     return (
         <div className='project-grid'>
             <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'></link>
-            <ProjectSideBar projects={projects} setProjects={setProjects} setCurrentProject={setCurrentProject}/>
-            <ProjectWorkSpace setProjects={setProjects} currentProject={currentProject}/>
+            <ProjectSideBar projects={projects} setProjects={setProjects} setCurrentProject={setCurrentProject} />
+            <ProjectWorkSpace setProjects={setProjects} currentProject={currentProject} />
         </div>
 
     )

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Summary, Notes, TaskList } from "./projectComponents/projectIndex"
 
-const ProjectWorkSpace = ({ setProjects, currentProject }) => {
+const ProjectWorkSpace = ({ setProjects, currentProject}) => {
 
     //Basically when current project comes in we need to populate all the data and information
     const handleSave = e => {

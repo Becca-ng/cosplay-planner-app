@@ -5,24 +5,21 @@ const bcrypt = require('bcryptjs');
 
 const LandingPage = () => {
 
-	const [userData, setUserData] = useState(null);
 	const [token, setToken] = useState('')
+	const [userData, setUserData] = useState(null);
 
 	const navigateTo = useNavigate();
-
-	// doesnt have to ssend unhasehdd password on first pass owo 
 
 	const handleLogin = async e => {
 		e.preventDefault();
 		const form = e.target.form;
 		const user = {
 			"username": form.username.value,
-			"password": form.password.value,
+			"password": "Do my cats know how cute they are?",
 			"create": false
 		}
 		console.log("login userinfo: " + user);
 		let response;
-		// TODO: wrap in try catch
 		let data = await callAPI("POST", user) 
 		await comparePasswords(form.password.value, userData, user.username)
 	}
@@ -69,7 +66,7 @@ const LandingPage = () => {
 		};
 
 		try{
-			await fetch(API_URL, requestOptions)
+			await fetch(USERS_API_URL, requestOptions)
 				.then(res => res.json())
 				.then((data) => {
 					console.log("API Call Return: " + data)
@@ -77,6 +74,8 @@ const LandingPage = () => {
 						alert(data.body);
 					}else if(token){
 						setToken(data.body);
+						sessionStorage.setItem('token', data.body);
+						sessionStorage.setItem('user', body.username);
 						navigateTo("/projects");
 					}
 					else{
@@ -140,6 +139,6 @@ const LandingPage = () => {
 }
 
 //https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
-const API_URL = 'https://fast-tor-11029.herokuapp.com/https://3uck5y4t5g.execute-api.us-east-1.amazonaws.com/live';
+const USERS_API_URL = 'https://fast-tor-11029.herokuapp.com/https://3uck5y4t5g.execute-api.us-east-1.amazonaws.com/live';
 
 export default LandingPage;
