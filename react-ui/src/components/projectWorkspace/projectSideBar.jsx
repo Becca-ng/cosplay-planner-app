@@ -58,36 +58,42 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
     setNewProjectName('');
   };
 
-  const handleDelete = e => {
-    //This will need to call to the API to delete
-    console.log(e.target)
-    console.log(e.target.attributes.index.value)
-    console.log(projects[e.target.attributes.index.value])
+  const handleDelete = async e => {
+    const index = e.target.attributes.index.value;
+    let body = {
+      username: username.toUpperCase(),
+      index: index
+    }
 
-    //Take the existing list of projects and remove the project from it with splice. We can access the index by doing e.target.index or something (it's set on the html button element)
-    //Then do setProjects to the new projects with the item removed
+    const response = await callAPI("DELETE", body);
+    console.log(response)
+
+    projects.splice(index,1);
   }
 
   const handleSelect = e => {
     /**
      * grab the index from the event
      * This will be the index of the project that was selected
-     * 
-     * you can grab that project with project[e.key] or something
-     * Then you can populate the Basic info/Notes/Task List data with the project information
      */
-
-    //This is coming from the parent component that contains both the sidebar and the workspace
-
-    //setCurrentProject(projects[e.target.attributes.key.value])
+    setCurrentProject(projects[e.target.attributes.index.value])
   }
 
   const createEmptyProject = (index) => {
+
+    let today = new Date();
+
     let body = {
       "index": index,
       "username": username,
       "project": {
-        "name": newProjectName
+        "name": newProjectName,
+        "series": 'Fill in where your character is from!',
+        "blurb": 'Write anything you want!',
+        "startDate": today.toISOString().split('T')[0],
+        "dueDate": today.toISOString().split('T')[0],
+        "debutCon": 'Where do you want to debut this cosplay?',
+        "tasks":[]
       }
     }
 
@@ -96,11 +102,11 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
       "username": username.toUpperCase(),
       "project": {
         "name": newProjectName,
-        "series": '',
-        "blurb": '',
-        "startDate": '',
-        "dueDate": '',
-        "debutCon": "Animazement",
+        "series": 'Fill in where your character is from!',
+        "blurb": 'Write anything you want!',
+        "startDate": today.toISOString().split('T')[0],
+        "dueDate": today.toISOString().split('T')[0],
+        "debutCon": 'Where do you want to debut this cosplay?',
         "tasks":[]
       }
     }
@@ -152,7 +158,7 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
               return (
 
                 //TODO you should style this to look a bit nicer
-                <li key={index} onClick={handleSelect}>
+                <li key={index} index={index} onClick={handleSelect}>
                   {project.project.name}
                   <button onClick={handleDelete} index={index}> Delete</button>
                 </li>

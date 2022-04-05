@@ -22,7 +22,7 @@ const ProjectWorkSpace = ({ setProjects, currentProject}) => {
 
             <div className="projectDetails details-grid">
 
-                <Summary action={handleSubmit}/>
+                <Summary handleSave={handleSave} project={currentProject}/>
             </div>
             <div className="projectNotes notes-grid">
                 <Notes />

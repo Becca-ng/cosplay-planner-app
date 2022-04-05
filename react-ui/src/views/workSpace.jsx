@@ -9,7 +9,7 @@ const WorkSpace = () => {
 
     //We need to introduce the idea of a currentProject at this level since the Sidebar and the Workspace need to communicate
     const [currentProject, setCurrentProject] = useState();
-    const [projects, setProjects] = useState();
+    const [projects, setProjects] = useState([]);
 
 
     return (
