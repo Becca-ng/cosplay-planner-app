@@ -30,7 +30,7 @@ const TaskList = () => {
 
                     <select id="preSet-tasks" name="presets" className="dropDown-content dropDown-options">
                         <option className="dropDown-title">
-                             pre-made task 
+                            pre-made task
                         </option>
                         <option value="armor">Armor</option>
                         <option value="bottom">Bottom</option>
@@ -50,7 +50,7 @@ const TaskList = () => {
 
                 <div className="taskAddBtn-grid">
                     <button className="taskAddButton">
-                        <img src={ plusIcon } className="plus"/>
+                        <img src={plusIcon} className="plus" />
                     </button>
                 </div>
 
@@ -58,21 +58,29 @@ const TaskList = () => {
 
 
 
-            <div className="taskTabs-container taskTabs-area">               
-            
-            <div className="taskTab">
-                   <div className="tabTextArea div1">
-                   We demand an end to the glorification of the bear as 
-                   nothing more than a vicious, smelly,
-                    ill-tempered, big-headed stink machine.
-                     I believe we all know what they do in the woods.
-                   </div>
-                   <div className="tabButtons div2">
-                    <button> edit task </button>
-                    <button> edit subtask </button>
-                    <button> Task Completed!</button>
-                   </div>
-               </div>
+            <div className="taskTabs-container taskTabs-area">
+
+                <div className="taskTab">
+                    <div className="tabTextArea div1">
+                        We demand an end to the glorification of the bear as
+                        nothing more than a vicious, smelly,
+                        ill-tempered, big-headed stink machine.
+                        I believe we all know what they do in the woods.
+                    </div>
+
+                    <div className="tabButtons div2">
+                        <button className="tabButt">
+                            <img src={plusIcon} className="tabIcon" />
+                        </button>
+                        <button className="tabButt">
+                            <img src={plusIcon} className="tabIcon" />
+
+                        </button>
+                        <button className="tabButt">
+                            <img src={plusIcon} className="tabIcon" />
+                        </button>
+                    </div>
+                </div>
 
             </div>
 
