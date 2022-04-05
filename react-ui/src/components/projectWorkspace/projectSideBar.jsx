@@ -14,15 +14,15 @@ const ProjectSideBar = ({projects, setProjects, setCurrentProject}) => {
         'username' : sessionStorage.getItem('user')
       }
 
-      // const returnedProjects = await callAPI("POST", body);
+      callAPI("POST", body);
 
-      fetch('http://localhost:8080/api/projects')
-        .then(res => res.json())
-        .then(data => setProjects(data));
-    }, []);
+      // fetch('http://localhost:8080/api/projects')
+      //   .then(res => res.json())
+      //   .then(data => setProjects(data));
+    }, [projects]);
 
     const callAPI = async (method, body) => {
-      console.log("API Call Body: " + body)
+      console.log("API Call Body: " + JSON.stringify(body))
       const requestOptions = {
         method: method,
         headers: { 'Content-Type': 'application/json' },
@@ -36,7 +36,7 @@ const ProjectSideBar = ({projects, setProjects, setCurrentProject}) => {
         await fetch(PROJECTS_API_URL, requestOptions)
           .then(res => res.json())
           .then((data) => {
-            setProjects(data.body.Items);
+            setProjects(data.body);
           })
       }catch(e){
         console.log("error" + e);
