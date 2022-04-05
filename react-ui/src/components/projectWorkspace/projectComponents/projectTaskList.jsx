@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { plusIcon, checkIcon , editIcon } from "../../../images/imageIndex"
-
+import React from "react";
 
 const TaskList = () => {
+
+    const [tasks, setTasks] = useState([]);
+
+    const addTask = e => {
+        e.preventDefault();
+        let newTask = {
+            name: (e.target.form.taskName.value) ? e.target.form.taskName.value : e.target.form.preSetTasks.value
+        }
+        setTasks([...tasks,newTask]);
+    }
 
     return (
         <div>
@@ -9,8 +20,8 @@ const TaskList = () => {
                 <h1> Task List</h1>
             </div>
 
-            <div className="addTask addTask-grid">
-
+            <form className="addTask addTask-grid">
+                
                 <div className="customTask-area">
                     <input type="textArea"
                         textarea
@@ -18,6 +29,7 @@ const TaskList = () => {
                         cols="10"
                         placeholder="Add a task!"
                         className="customTask"
+                        id="taskName"
                     />
                 </div>
 
@@ -28,7 +40,7 @@ const TaskList = () => {
 
                 <div className="dropDown dropDown-grid">
 
-                    <select id="preSet-tasks" name="presets" className="dropDown-content dropDown-options">
+                    <select id="preSetTasks" name="presets" className="dropDown-content dropDown-options">
                         <option className="dropDown-title">
                             pre-made task
                         </option>
@@ -50,38 +62,37 @@ const TaskList = () => {
 
                 <div className="taskAddBtn-grid">
                     <button className="taskAddButton">
-                        <img src={plusIcon} className="plus" />
+                        {/* <img alt="Submit Form" src={plusIcon} onClick={addTask} className="plus" /> */}
+                        <input type="image" src={plusIcon} onClick={addTask} className="plus" alt="Submit Form" />
                     </button>
                 </div>
-
-            </div>
-
-
+            </form>
 
             <div className="taskTabs-container taskTabs-area">
-
+            {tasks && (
+            tasks.map((task, index) => {
+              return (
                 <div className="taskTab">
                     <div className="tabTextArea div1">
-                        We demand an end to the glorification of the bear as
-                        nothing more than a vicious, smelly,
-                        ill-tempered, big-headed stink machine.
-                        I believe we all know what they do in the woods.
+                        {task.name}
                     </div>
 
-                    <div className="tabButtons div2">
-                        <button className="tabButt">
+                    {/* <div className="tabButtons div2"> */}
+                        {/* <button className="tabButt">
                             <img src={plusIcon} className="tabIcon" />
-                        </button>
-                        <button className="tabButt">
+                        </button> */}
+                        {/* <button className="tabButt">
                             <img src={editIcon} className="tabIcon" />
 
-                        </button>
-                        <button className="tabButt">
+                        </button> */}
+                        {/* <button className="tabButt">
                             <img src={checkIcon} className="tabIcon" />
-                        </button>
-                    </div>
+                        </button> */}
+                    {/* </div> */}
                 </div>
-
+              )
+            })
+          )}
             </div>
 
         </div>
