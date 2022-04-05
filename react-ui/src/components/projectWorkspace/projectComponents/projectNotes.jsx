@@ -1,4 +1,4 @@
-const Notes = ({project, handleSave}) => {
+const Notes = ({  handleSave, project }) => {
 
     return (
         <div className="notesArea">
@@ -10,22 +10,21 @@ const Notes = ({project, handleSave}) => {
 
 
             <div className="notes2">
-                <form onSubmit={handleSave}>
+                <form>
                     <textarea
                         cols="50"
                         rows="3"
+                        id="blurb"
                         className="notesText"
-                        value={project && project.project.blurb}>
+                        placeholder={project && project.project.blurb}>
                     </textarea>
+                    <div className="notes3">
+                        <button onClick={handleSave} type="submit" className="notesButt" update="blurb">
+                            Save!
+                        </button>
+                    </div>
                 </form>
             </div>
-
-            <div className="notes3">
-                <button type="submit" className="notesButt">
-                    Save!
-                </button>
-            </div>
-
         </div>
 
     )
