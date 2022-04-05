@@ -1,4 +1,4 @@
-const Summary = ({project}) => {
+const Summary = ({project, handleSave}) => {
 
     return (
         <div className="summary-grid">
@@ -6,7 +6,7 @@ const Summary = ({project}) => {
                 <h1> Project Details</h1>
             </div>
             <div className="summaryForm form-grid">
-                <form>
+                <form onSubmit={handleSave} >
                     <div className="sumName">
                         <label for="projectName" className="summaryLabel">
                             Name:
@@ -40,9 +40,9 @@ const Summary = ({project}) => {
                     
                 </form>
             </div>
-            <div className="sumButt sumButt-container">
-            <button> Save! </button>
-            <button> Edit! </button>
+            <div className="sumButt-container">
+            <button className="sumButt" type="submit"> Save! </button>
+            {/* <button className="sumButt"> Edit! </button> */}
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Summary, Notes, TaskList } from "./projectComponents/projectIndex"
 
 const ProjectWorkSpace = ({ setProjects, currentProject}) => {
@@ -9,15 +10,22 @@ const ProjectWorkSpace = ({ setProjects, currentProject}) => {
         //this also technically needs to modify the list of Projects so I might move that to the parent was well
     }
 
+    const [fields, setFields] = useState([]);
+
+    const handleSubmit = contactFields => {
+        const updatedDetails = [...fields, contactFields];
+        setFields(updatedDetails);
+      };
+    
     return (
         <div className="project-WorkSpace workSpace-grid">
 
             <div className="projectDetails details-grid">
 
-                <Summary project={currentProject}/>
+                <Summary handleSave={handleSave} project={currentProject}/>
             </div>
             <div className="projectNotes notes-grid">
-                <h1>Notes</h1>
+                <Notes />
             </div>
 
             <div className="projectTaskList taskList-grid">
