@@ -76,6 +76,7 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
      * grab the index from the event
      * This will be the index of the project that was selected
      */
+    console.log(e.target);
     setCurrentProject(projects[e.target.attributes.index.value])
   }
 
