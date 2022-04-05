@@ -72,14 +72,9 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
     /**
      * grab the index from the event
      * This will be the index of the project that was selected
-     * 
-     * you can grab that project with project[e.key] or something
-     * Then you can populate the Basic info/Notes/Task List data with the project information
+
      */
-
-    //This is coming from the parent component that contains both the sidebar and the workspace
-
-    //setCurrentProject(projects[e.target.attributes.key.value])
+    setCurrentProject(projects[e.target.attributes.index.value])
   }
 
   const createEmptyProject = (index) => {
@@ -91,16 +86,18 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
       }
     }
 
+    let today = new Date();
+
     let project = {
       "projectId": createId(index),
       "username": username.toUpperCase(),
       "project": {
         "name": newProjectName,
-        "series": '',
-        "blurb": '',
-        "startDate": '',
-        "dueDate": '',
-        "debutCon": "Animazement",
+        "series": 'Fill in where your character is from!',
+        "blurb": 'Write anything you want!',
+        "startDate": today.toISOString().split('T')[0],
+        "dueDate": today.toISOString().split('T')[0],
+        "debutCon": 'Where do you want to debut this cosplay?',
         "tasks":[]
       }
     }
@@ -152,7 +149,7 @@ const ProjectSideBar = ({ projects, setProjects, setCurrentProject }) => {
               return (
 
                 //TODO you should style this to look a bit nicer
-                <li key={index} onClick={handleSelect}>
+                <li key={index} index={index} onClick={handleSelect}>
                   {project.project.name}
                   <button onClick={handleDelete} index={index}> Delete</button>
                 </li>
