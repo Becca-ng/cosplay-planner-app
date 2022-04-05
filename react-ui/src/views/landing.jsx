@@ -1,14 +1,19 @@
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { loginBackground } from "../images/imageIndex"
+import { useState , useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 const bcrypt = require('bcryptjs');
 
 const LandingPage = () => {
 
 	const [token, setToken] = useState('')
+	const [formPassword, setFormPassword] = useState('')
+	const [username, setUsername] = useState('')
 	const [userData, setUserData] = useState(null);
 
 	const navigateTo = useNavigate();
+
+	useEffect(() => {
+		comparePasswords(formPassword, userData, username)
+	}, [userData]);
 
 	const handleLogin = async e => {
 		e.preventDefault();
@@ -18,10 +23,9 @@ const LandingPage = () => {
 			"password": "Do my cats know how cute they are?",
 			"create": false
 		}
-		console.log("login userinfo: " + user);
-		let response;
-		let data = await callAPI("POST", user) 
-		await comparePasswords(form.password.value, userData, user.username)
+		setFormPassword(form.password.value);
+		setUsername(user.username)
+		await callAPI("POST", user) 
 	}
 
 	const comparePasswords = async (localPassword, data, username) => {
@@ -47,7 +51,6 @@ const LandingPage = () => {
 			"password": "",
 			"create": true
 		}
-		let response;
 		bcrypt.genSalt(10, async function(err, salt) {
 			bcrypt.hash(form.password.value, salt, async function(err, hash) {
 				user.password = hash;
@@ -58,7 +61,6 @@ const LandingPage = () => {
 
 
 	const callAPI = async (method, body, token = false) => {
-		console.log("API Call Body: " + body)
 		const requestOptions = {
 			method: method,
 			headers: { 'Content-Type': 'application/json' },
@@ -69,7 +71,6 @@ const LandingPage = () => {
 			await fetch(USERS_API_URL, requestOptions)
 				.then(res => res.json())
 				.then((data) => {
-					console.log("API Call Return: " + data)
 					if(body.create){
 						alert(data.body);
 					}else if(token){
